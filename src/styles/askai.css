@@ -1,0 +1,541 @@
+/* ============================================
+   Ask AI Sidebar Drawer & Voice Interface Styles
+   Minimalist European Luxury Fashion Aesthetic
+   ============================================ */
+
+/* ---- Backdrop Overlay ---- */
+.askai-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(17, 17, 17, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: flex-end;
+  animation: askai-fade-in 0.2s ease-out;
+}
+
+@keyframes askai-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ---- Sidebar Drawer Container ---- */
+.askai-sidebar {
+  width: 450px;
+  max-width: 100vw;
+  height: 100vh;
+  background: #ffffff;
+  border-left: 1px solid var(--border-subtle);
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  animation: askai-slide-in-right 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes askai-slide-in-right {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@media (max-width: 480px) {
+  .askai-sidebar {
+    width: 100vw;
+  }
+}
+
+/* ---- Sidebar Header ---- */
+.askai-header {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-primary);
+}
+
+.askai-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.askai-header-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  background: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.askai-header-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.02em;
+}
+
+.askai-header-subtitle {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.askai-header-actions {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.askai-header-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.askai-header-btn:hover {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.askai-header-btn--active {
+  color: var(--text-primary);
+  background: var(--bg-surface);
+}
+
+.askai-header-btn--speaking {
+  color: #dc2626 !important;
+  background: rgba(220, 38, 38, 0.1) !important;
+  border: 1px solid rgba(220, 38, 38, 0.3) !important;
+  animation: askai-pulse-btn 1.4s infinite ease-in-out;
+}
+
+@keyframes askai-pulse-btn {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* ---- Settings Section ---- */
+.askai-settings {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: askai-slide-down 0.2s ease-out;
+}
+
+@keyframes askai-slide-down {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.askai-settings-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.askai-settings-row label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.askai-settings-input {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-medium);
+  background: #ffffff;
+  color: var(--text-primary);
+  font-size: 0.8125rem;
+  font-family: var(--font-mono);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.askai-settings-input:focus {
+  border-color: var(--text-primary);
+}
+
+.askai-settings-hint {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ---- Messages Area ---- */
+.askai-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  scroll-behavior: smooth;
+  background: #ffffff;
+}
+
+/* Message Bubble Roles */
+.askai-msg {
+  display: flex;
+  flex-direction: column;
+  max-width: 88%;
+}
+
+.askai-msg--user {
+  align-self: flex-end;
+  background-color: var(--text-primary);
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.askai-msg--model {
+  align-self: flex-start;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+/* Empty State */
+.askai-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 48px 10px;
+  margin: auto 0;
+}
+
+.askai-empty-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.askai-empty-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.askai-empty-desc {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 320px;
+  margin-bottom: 24px;
+}
+
+.askai-suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.askai-suggestion-chip {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.askai-suggestion-chip:hover {
+  background: var(--bg-surface);
+  border-color: var(--text-primary);
+}
+
+/* Confirmation Box */
+.askai-confirm {
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-medium);
+  background: var(--bg-surface);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.askai-confirm-text {
+  font-size: 0.8125rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.askai-confirm-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.askai-confirm-btn {
+  flex: 1;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.askai-confirm-btn--yes {
+  background: var(--text-primary);
+  color: #ffffff;
+}
+
+.askai-confirm-btn--yes:hover {
+  background: #2b2b2b;
+}
+
+.askai-confirm-btn--no {
+  background: #ffffff;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-medium);
+}
+
+/* Voice Status Listening Banner */
+.askai-voice-bar {
+  padding: 10px 18px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-medium);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.askai-voice-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.askai-voice-waves {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 16px;
+}
+
+.askai-voice-wave {
+  width: 2px;
+  background: var(--text-primary);
+  border-radius: 1px;
+  animation: askai-wave-bounce 0.8s ease-in-out infinite alternate;
+}
+
+.askai-voice-wave:nth-child(1) { height: 6px; animation-delay: 0.1s; }
+.askai-voice-wave:nth-child(2) { height: 14px; animation-delay: 0.3s; }
+.askai-voice-wave:nth-child(3) { height: 10px; animation-delay: 0.15s; }
+.askai-voice-wave:nth-child(4) { height: 8px; animation-delay: 0.4s; }
+
+@keyframes askai-wave-bounce {
+  0% { transform: scaleY(0.4); }
+  100% { transform: scaleY(1.4); }
+}
+
+.askai-voice-text {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.askai-voice-stop-btn {
+  background: transparent;
+  border: 1px solid var(--border-medium);
+  color: var(--text-primary);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Input Area */
+.askai-input-area {
+  padding: 14px 18px;
+  border-top: 1px solid var(--border-subtle);
+  background: #ffffff;
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.askai-input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-medium);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.8125rem;
+  outline: none;
+  resize: none;
+  min-height: 40px;
+  max-height: 80px;
+  line-height: 1.4;
+  transition: border-color 0.15s;
+}
+
+.askai-input:focus {
+  border-color: var(--text-primary);
+}
+
+.askai-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Microphone Button */
+.askai-mic-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-medium);
+  background: #ffffff;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.askai-mic-btn:hover:not(:disabled) {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.askai-mic-btn--listening {
+  background: var(--text-primary) !important;
+  border-color: var(--text-primary) !important;
+  color: #ffffff !important;
+}
+
+/* Send Button */
+.askai-send-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: var(--text-primary);
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: opacity 0.15s;
+}
+
+.askai-send-btn:hover:not(:disabled) {
+  background: #2b2b2b;
+}
+
+.askai-send-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Typing Indicator */
+.askai-typing {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  align-self: flex-start;
+  background: var(--bg-primary);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.askai-typing-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.askai-typing-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  animation: askai-dot-bounce 1.2s infinite;
+}
+
+.askai-typing-dot:nth-child(2) { animation-delay: 0.15s; }
+.askai-typing-dot:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes askai-dot-bounce {
+  0%, 80%, 100% { transform: scale(0.7); opacity: 0.4; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+.askai-typing-text {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* Error Banner */
+.askai-error {
+  padding: 8px 12px;
+  margin: 0 14px;
+  border-radius: var(--radius-sm);
+  background: var(--danger-bg);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}

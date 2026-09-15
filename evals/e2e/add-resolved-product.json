@@ -1,0 +1,13 @@
+{
+  "id": "add-resolved-product",
+  "userPrompt": "Find the best matching product within my constraints and add it to my cart.",
+  "initialState": "authenticated/cart-empty",
+  "availableTools": ["search_products", "get_product_details", "add_to_cart", "get_cart"],
+  "expectedCalls": [
+    { "functionName": "search_products", "arguments": { "query": "${criteria}" } },
+    { "functionName": "add_to_cart", "arguments": { "productId": "${resolvedProductId}", "quantity": 1 }, "dynamicArguments": ["productId"] },
+    { "functionName": "get_cart", "arguments": {} }
+  ],
+  "expectedState": "authenticated/cart-populated",
+  "expectedFinalResult": "The product selected from the immediately preceding tool output is present in the cart."
+}

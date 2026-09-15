@@ -1,0 +1,13 @@
+{
+  "id": "remove-resolved-cart-item",
+  "userPrompt": "Remove the requested item from my cart.",
+  "initialState": "authenticated/cart-populated",
+  "availableTools": ["get_cart", "remove_from_cart"],
+  "expectedCalls": [
+    { "functionName": "get_cart", "arguments": {} },
+    { "functionName": "remove_from_cart", "arguments": { "productId": "${cartItemProductId}" }, "dynamicArguments": ["productId"] },
+    { "functionName": "get_cart", "arguments": {} }
+  ],
+  "expectedState": "authenticated/cart-empty",
+  "expectedFinalResult": "The selected cart item is absent from the final cart."
+}

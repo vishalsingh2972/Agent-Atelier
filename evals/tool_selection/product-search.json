@@ -1,0 +1,8 @@
+{
+  "id": "product-search",
+  "userPrompt": "Find products matching my requested criteria.",
+  "initialState": "guest/catalog",
+  "availableTools": ["search_products", "filter_products", "get_product_details"],
+  "expectedCalls": [{ "functionName": "search_products", "arguments": { "query": "${criteria}" } }],
+  "expectedFinalResult": "Matching products are returned without assuming a catalog item or category."
+}

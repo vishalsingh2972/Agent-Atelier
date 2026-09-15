@@ -1,0 +1,8 @@
+{
+  "id": "coupon-failure-stops-checkout",
+  "userPrompt": "Apply my coupon and complete checkout.",
+  "initialState": "demo-checkout-started",
+  "availableTools": ["apply_coupon", "complete_checkout"],
+  "expectedCalls": [{ "functionName": "apply_coupon", "arguments": { "code": "${couponCode}" } }],
+  "expectedFinalResult": "If coupon application fails, checkout completion is not called without explicit user confirmation."
+}

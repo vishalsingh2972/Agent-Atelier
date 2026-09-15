@@ -1,0 +1,12 @@
+{
+  "id": "journey-a-search-inspect-add-view",
+  "userPrompt": "Find me a good laptop, show me its details, add it to my cart, and then show me what's in my cart.",
+  "initialState": "authenticated, cart empty",
+  "availableTools": ["search_products", "get_product_details", "filter_products", "sort_products", "get_product_recommendations", "compare_products", "check_product_stock", "get_current_promotions", "get_available_product_variants", "get_shipping_estimate", "add_to_cart", "get_cart", "update_cart_quantity", "remove_from_cart", "clear_cart", "apply_coupon", "add_to_wishlist", "remove_from_wishlist", "get_wishlist", "get_order_history", "get_order_details", "cancel_order", "get_saved_addresses", "update_shipping_address", "logout", "get_account_info"],
+  "expectedCalls": [
+    { "functionName": "search_products", "arguments": { "query": "${criteria}" } },
+    { "functionName": "get_product_details", "arguments": { "productId": "${resolvedProductId}" } },
+    { "functionName": "add_to_cart", "arguments": { "productId": "${resolvedProductId}" } },
+    { "functionName": "get_cart", "arguments": {} }
+  ]
+}

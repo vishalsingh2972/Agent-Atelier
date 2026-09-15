@@ -1,0 +1,8 @@
+{
+  "id": "failure-invalid-quantity",
+  "userPrompt": "Add -3 units of this product to my cart.",
+  "initialState": "authenticated, cart empty",
+  "availableTools": ["search_products", "get_product_details", "add_to_cart", "get_cart", "update_cart_quantity", "remove_from_cart", "clear_cart", "logout", "get_account_info"],
+  "expectedCalls": [],
+  "expectNoToolCall": true
+}

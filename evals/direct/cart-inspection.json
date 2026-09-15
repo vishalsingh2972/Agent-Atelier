@@ -1,0 +1,8 @@
+{
+  "id": "cart-inspection",
+  "userPrompt": "What is currently in my cart?",
+  "initialState": "authenticated/cart-populated",
+  "availableTools": ["get_cart"],
+  "expectedCalls": [{ "functionName": "get_cart", "arguments": {} }],
+  "expectedFinalResult": "The response can name every line item, quantity, subtotal, and total."
+}

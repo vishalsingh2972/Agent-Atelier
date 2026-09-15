@@ -1,0 +1,9 @@
+{
+  "id": "authentication-required",
+  "userPrompt": "Show me my cart.",
+  "initialState": "guest/catalog",
+  "availableTools": ["search_products"],
+  "expectedCalls": [],
+  "expectNoToolCall": true,
+  "expectedFinalResult": "The agent requests login instead of attempting a protected cart operation."
+}

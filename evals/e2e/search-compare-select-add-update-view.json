@@ -1,0 +1,12 @@
+{
+  "id": "journey-b-search-compare-select-add-update-view",
+  "userPrompt": "Search for monitors, compare the top two results, add the better-rated one to my cart with quantity 2, then show my cart.",
+  "initialState": "authenticated, cart empty",
+  "availableTools": ["search_products", "get_product_details", "filter_products", "sort_products", "get_product_recommendations", "compare_products", "check_product_stock", "get_current_promotions", "get_available_product_variants", "get_shipping_estimate", "add_to_cart", "get_cart", "update_cart_quantity", "remove_from_cart", "clear_cart", "apply_coupon", "add_to_wishlist", "remove_from_wishlist", "get_wishlist", "get_order_history", "get_order_details", "cancel_order", "get_saved_addresses", "update_shipping_address", "logout", "get_account_info"],
+  "expectedCalls": [
+    { "functionName": "search_products", "arguments": { "query": "${criteria}" } },
+    { "functionName": "compare_products", "arguments": { "productIds": ["${resolvedProductId1}", "${resolvedProductId2}"] } },
+    { "functionName": "add_to_cart", "arguments": { "productId": "${resolvedProductId}", "quantity": 2 } },
+    { "functionName": "get_cart", "arguments": {} }
+  ]
+}

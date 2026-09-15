@@ -1,0 +1,8 @@
+{
+  "id": "budget-product",
+  "userPrompt": "I need something suitable around my budget.",
+  "initialState": "guest/catalog",
+  "availableTools": ["search_products", "filter_products"],
+  "expectedCalls": [{ "functionName": "filter_products", "arguments": { "maxPrice": "${budget}" } }],
+  "expectedFinalResult": "The agent asks for missing criteria or applies only stated constraints; it does not invent product properties."
+}

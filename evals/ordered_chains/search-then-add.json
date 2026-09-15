@@ -1,0 +1,11 @@
+{
+  "id": "search-then-add",
+  "userPrompt": "Find a product meeting my criteria and add it to my cart.",
+  "initialState": "authenticated/cart-empty",
+  "availableTools": ["search_products", "add_to_cart"],
+  "expectedCalls": [
+    { "functionName": "search_products", "arguments": { "query": "${criteria}" } },
+    { "functionName": "add_to_cart", "arguments": { "productId": "${resolvedProductId}", "quantity": 1 } }
+  ],
+  "expectedFinalResult": "The add operation uses an ID returned by search and occurs after search."
+}

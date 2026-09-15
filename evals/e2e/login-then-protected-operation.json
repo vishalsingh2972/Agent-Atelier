@@ -1,0 +1,10 @@
+{
+  "id": "journey-c-login-then-protected-operation",
+  "userPrompt": "Show me what's in my cart.",
+  "initialState": "guest, not authenticated",
+  "availableTools": ["search_products", "get_product_details", "filter_products", "sort_products", "get_product_recommendations", "compare_products", "check_product_stock", "get_current_promotions", "get_available_product_variants", "get_shipping_estimate", "login", "register", "get_account_info"],
+  "expectedCalls": [
+    { "functionName": "login", "arguments": { "email": "${userEmail}", "password": "${userPassword}" } },
+    { "functionName": "get_cart", "arguments": {} }
+  ]
+}

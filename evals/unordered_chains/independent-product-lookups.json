@@ -1,0 +1,13 @@
+{
+  "id": "independent-product-lookups",
+  "userPrompt": "Compare two products that match my separate requests.",
+  "initialState": "guest/catalog",
+  "availableTools": ["search_products", "get_product_details", "compare_products"],
+  "expectedCalls": [
+    { "unordered": [
+      { "ordered": [{ "functionName": "search_products", "arguments": { "query": "${criteriaA}" } }, { "functionName": "get_product_details", "arguments": { "productId": "${resolvedProductIdA}" } }] },
+      { "ordered": [{ "functionName": "search_products", "arguments": { "query": "${criteriaB}" } }, { "functionName": "get_product_details", "arguments": { "productId": "${resolvedProductIdB}" } }] }
+    ] }
+  ],
+  "expectedFinalResult": "Each detail lookup follows its own search; branch order is irrelevant."
+}

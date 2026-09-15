@@ -1,0 +1,41 @@
+{
+  "name": "agentbridge-ecommerce",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:push": "prisma db push",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:test:verify": "tsx scripts/verify-webmcp-test-db.ts",
+    "test": "vitest run",
+    "test:webmcp:integration": "tsx scripts/run-webmcp-integration-tests.ts",
+    "test:webmcp:e2e": "playwright test",
+    "eval:webmcp": "tsx scripts/run-webmcp-evals.ts",
+    "eval:webmcp:llm": "tsx scripts/run-webmcp-llm-evals.ts",
+    "eval:webmcp:schema": "tsx scripts/validate-webmcp-evals.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.19.0",
+    "bcryptjs": "^2.4.3",
+    "clsx": "^2.1.1",
+    "jose": "^5.9.2",
+    "lucide-react": "^0.439.0",
+    "next": "^14.2.10",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20.16.5",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "prisma": "^5.19.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  }
+}

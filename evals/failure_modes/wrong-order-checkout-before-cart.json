@@ -1,0 +1,8 @@
+{
+  "id": "failure-wrong-order-checkout-before-cart",
+  "userPrompt": "Place an order to 123 Main St, Anytown, CA 90001.",
+  "initialState": "authenticated, cart empty",
+  "availableTools": ["search_products", "get_product_details", "filter_products", "sort_products", "add_to_cart", "get_cart", "update_cart_quantity", "remove_from_cart", "clear_cart", "get_order_history", "get_order_details", "cancel_order", "get_saved_addresses", "logout", "get_account_info"],
+  "expectedCalls": [],
+  "expectNoToolCall": true
+}

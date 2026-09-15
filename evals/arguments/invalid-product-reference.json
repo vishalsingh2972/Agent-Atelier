@@ -1,0 +1,8 @@
+{
+  "id": "invalid-product-reference",
+  "userPrompt": "Add this product to my cart.",
+  "initialState": "authenticated/cart-empty",
+  "availableTools": ["add_to_cart"],
+  "expectedCalls": [{ "functionName": "add_to_cart", "arguments": { "productId": "${resolvedProductId}", "quantity": 1 } }],
+  "expectedFinalResult": "An unresolved or invalid ID produces a structured non-retryable error."
+}
